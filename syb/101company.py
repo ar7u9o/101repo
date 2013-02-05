@@ -109,14 +109,3 @@ get_dept = everything(lambda a, b: a or b, None |mkQ| getDepartment)
 
 print get_dept(company)
 
-# alternate syntax
-
-#def cutOne(e):
-#    return Employee(e.name, e.salary/2.0)
-#
-#cut = everywhere({
-#    Employee: cut
-#})
-#
-#print cut(company)
-
