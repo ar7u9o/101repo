@@ -100,12 +100,3 @@ total = everything(operator.add, 0 |mkQ| salary)
 
 print total(company)
 
-
-@t(Department)
-def getDepartment(d):
-    return d if d.name == "Dev1.1" else None
-
-get_dept = everything(lambda a, b: a or b, None |mkQ| getDepartment)
-
-print get_dept(company)
-

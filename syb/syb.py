@@ -99,7 +99,8 @@ foldl = lambda f, z, x: reduce(f, x, z)
 
 # end of helpers
 
-orElse = lambda x, y: x if isJust(x) else y
+
+orElse = lambda x, y: x or y
 
 @curry
 def everywhere(f, x):
