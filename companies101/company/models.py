@@ -36,6 +36,12 @@ class Company:
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
 
+    def get_dept(self, name):
+        return reduce(lambda x, y: x or y, [d.get_dept(name) for d in self.depts])
+
+    def get_employee(self, name):
+        return reduce(lambda x, y: x or y, [d.get_employee(name) for d in self.depts])
+
 class Employee:
     def __init__(self, name, salary):
         self.name = name
@@ -49,6 +55,12 @@ class Employee:
 
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
+
+    def get_dept(self, name):
+        return None
+
+    def get_employee(self, name):
+        return self if self.name == name else None
 
 class Dept:
     def __init__(self, name, manager, subunits):
@@ -65,6 +77,12 @@ class Dept:
 
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
+
+    def get_dept(self, name):
+        return self if self.name == name else reduce(lambda x, y: x or y, [d.get_dept(name) for d in self.subunits])
+
+    def get_employee(self, name):
+        return reduce(lambda x, y: x or y, [d.get_employee(name) for d in self.subunits])
 
 company = Company(
     name = "Meganalysis",

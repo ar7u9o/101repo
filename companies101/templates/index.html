@@ -82,17 +82,27 @@ ul, li {
 }
 
 #cut {
-
-    padding-left: 20px;
-    padding-right: 20px;
     border-right: 1px solid #333333;
     border-left: 1px solid #333333;
+    float: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: white;
 
 }
 
 #total {
+    float: right;
+    font-size: 25px;
+    padding-right: 10px;
+    color: white;
+}
 
-    margin: 20px;
+#buttons {
+
+    float: right;
+    display: inline;
+    font-size: 25px;
 
 }
 
@@ -106,6 +116,10 @@ ul, li {
                 {% block title %}
                 Company: {{ company.name }}
                 {% endblock %}
+                
+            </div>
+
+            <div id='buttons'>
 
             {% block buttons %}
 
@@ -114,7 +128,7 @@ ul, li {
                 <a href='total' id='total'>Total</a>
 
             {% endblock %}
-                
+
             </div>
             
         </div>
@@ -126,7 +140,7 @@ ul, li {
 
                 {% for dept in company.depts %}
 
-                    <li><a class='department-name' href="department/{{ dept.name }}">{{ dept.name }}</a></li>
+                    <li><a class='department-name' href="/company/department/{{ dept.name }}">{{ dept.name }}</a></li>
 
                 {% endfor %}
 

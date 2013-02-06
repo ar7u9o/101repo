@@ -15,7 +15,10 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^company/$', 'company.views.index'),
-    url(r'^company/department/(?P<department_name>[a-zA-Z]+)', 'company.views.department'),
-    url(r'^company/employee/(?P<employee_name>[a-zA-Z]+)', 'company.views.employee'),
-    url(r'^company/cut', 'company.views.cut')
+    url(r'^/$', 'company.views.index'),
+    url(r'^$', 'company.views.index'),
+    url(r'^company/department/(?P<department_name>[a-zA-Z0-9_\.]+)', 'company.views.department'),
+    url(r'^company/employee/(?P<employee_name>[a-zA-Z0-9_\.]+)', 'company.views.employee'),
+    url(r'^company/cut', 'company.views.cut'),
+    url(r'^company/total', 'company.views.total')
 )
