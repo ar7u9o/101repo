@@ -11,13 +11,6 @@ def index(request):
 def department(request, department_name):
 
     dept = company.get_dept(department_name)
-
-    for s in dept.subunits:
-        if isinstance(s, Dept):
-            s.type = 'Dept'
-        else:
-            s.type = 'Employee'
-    
     return render_to_response('department.html', { 'dept' : dept })
 
 def employee(request, employee_name):
@@ -28,10 +21,10 @@ def employee(request, employee_name):
 def cut(request):
     
     company.cut()
-    return redirect('/company')
+    return redirect('/company/total')
 
 def total(request):
-    return HttpResponse(company.total())
+    return render_to_response('total.html', {'value': company.total()})
     
     
 

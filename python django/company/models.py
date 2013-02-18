@@ -63,10 +63,11 @@ class Employee:
         return self if self.name == name else None
 
 class Dept:
-    def __init__(self, name, manager, subunits):
+    def __init__(self, name, manager, subunits, employees):
         self.name = name
         self.manager = manager
         self.subunits = subunits
+        self.employees = employees
 
     def cut(self):
         self.manager.cut()
@@ -79,10 +80,14 @@ class Dept:
         return self.__dict__ == other.__dict__
 
     def get_dept(self, name):
-        return self if self.name == name else reduce(lambda x, y: x or y, [d.get_dept(name) for d in self.subunits])
+        return self if self.name == name else reduce(lambda x, y: x or y, [d.get_dept(name) for d in self.subunits]) if self.subunits else []
 
     def get_employee(self, name):
-        return reduce(lambda x, y: x or y, [d.get_employee(name) for d in self.subunits])
+        own = filter(lambda e: e.name == name, self.employees)
+        if own:
+            return own[0]
+        else:
+            return reduce(lambda x, y: x or y, [d.get_employee(name) for d in self.subunits]) if self.subunits else []
 
 company = Company(
     name = "Meganalysis",
@@ -94,6 +99,9 @@ company = Company(
                 salary = 123456.0
             ),
             subunits = [
+                
+            ],
+            employees = [
                 Employee(
                     name = "Erik",
                     salary = 12345.0
@@ -124,14 +132,18 @@ company = Company(
                                 name = "Karl",
                                 salary = 2345.0
                             ),
-                            subunits = [
-                                Employee(
-                                    name = "Joe",
-                                    salary = 2344.0
-                                )
-                            ]
+                            subunits = [],
+                            employees = []
                         )
-                    ]
+                    ],
+                    employees = []
+                ),
+                
+            ],
+            employees = [
+                Employee(
+                    name = "Joe",
+                    salary = 2344.0
                 )
             ]
         )

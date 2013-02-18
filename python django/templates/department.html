@@ -13,15 +13,13 @@
 
 {% for sub in dept.subunits %}
 
-    {% if sub.type == 'Dept' %}
+    <li><a class='department-name' href="../department/{{ sub.name }}">{{ sub.name }}</a></li>
 
-        <li><a class='department-name' href="../department/{{ sub.name }}">{{ sub.name }}</a></li>
+{% endfor %}
 
-    {% else %}
+{% for sub in dept.employees %}
 
-        <li><a class='department-name' href="../employee/{{ sub.name }}">{{ sub.name }}</a></li>
-
-    {% endif %}
+    <li><a class='department-name' href="../employee/{{ sub.name }}">{{ sub.name }}</a></li>
 
 {% endfor %}
 
