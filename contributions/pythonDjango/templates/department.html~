@@ -15,7 +15,7 @@
     <li><p /></li>
 
 
-    {% if dept.subunits %} <li>Subunits:</li> {% endif %}
+    <li>Subunits:</li>
 
 {% for sub in dept.subunits %}
 

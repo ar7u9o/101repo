@@ -82,5 +82,5 @@ c = cut company
 console.log total c
 
 if (total c) != (total company) / 2.0
-    console.log 'test failed'
+    console.log 'test failed, ' + (total c) + ' != ' + (total commpany 
 

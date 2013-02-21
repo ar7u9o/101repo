@@ -91,12 +91,8 @@ class Dept:
         if len(self.subunits) == 0:
             return None
         
-        d = filter(bool, (d.get_dept(name) for d in self.subunits))
-        if d:
-            return d[0]
-        else:
-            return None        
-    
+        return filter(bool, (d.get_dept(name) for d in self.subunits))
+        
 
     def get_employee(self, name):
         own = filter(lambda e: e.name == name, self.employees + [self.manager])

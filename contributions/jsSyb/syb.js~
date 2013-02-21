@@ -146,7 +146,7 @@ function getSalary(e) {
 total = everything(function (a, b) { return a+b; }, mkQ(const_(0), getSalary));
 console.log(total(company));
  
-cut = everywhere(mkT(cutOne));
+cut = everywhere(mkT(cutOne))
 cut_company = cut(company);
 console.log(total(cut_company));
 

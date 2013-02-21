@@ -99,5 +99,5 @@ cut = everywhere(mkT(cutOne))
 
 print total(cut(company))
 
-assert total(cut(company)) == (total(company) / 2.0)
+assert round(total(cut(company)), 3) == round((total(company) / 2.0), 3)
 

@@ -1,4 +1,4 @@
-from functools import partial, reduce
+from functools import partial
 import copy
 from collections import namedtuple
 from functools import partial
