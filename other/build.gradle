@@ -80,10 +80,7 @@ configure(subprojects.findAll {it.name.startsWith('jaxb')}) {
 
 	task xjc(type: Exec) {
 		mkdir('build/generated/java')
-		if (System.getProperty("os.name").contains("Windows"))
-			commandLine 'xjc'
-		else
-			commandLine 'xjc'
+        commandLine 'xjc'
 		args = ['Company.xsd', '-d', 'build/generated/java']
 	}
 
